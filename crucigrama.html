@@ -12,8 +12,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 30vh;
-            margin: 17;
+            height: 100vh;
+            margin: 7;
             background-color: #f0d7ff;
         }
 
@@ -74,8 +74,8 @@
         #continuar {
             display: none; /* Initially hidden */
             margin-top: 20px;
-            background-color: #c8a4e2;
-            color: black;
+            background-color: #b591a7;
+            color: white;
             font-size: 18px;
             padding: 10px 20px;
             border: none;
@@ -91,7 +91,7 @@
             <table id="sopa"></table>
             <ul id="pistas"></ul>
         </div>
-        <button id="continuar">continuar</button>
+        <button id="continuar">Continuar</button>
     </div>
 
     <script>
@@ -298,6 +298,11 @@
         document.getElementById("continuar").addEventListener("click", () => {
             window.location.href = "menu.html";
         });
+
+        generarSopa();
+    </script>
+</body>
+</html>
 
         generarSopa();
     </script>
