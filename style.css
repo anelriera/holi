@@ -1,0 +1,31 @@
+/* General page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f3f8d8; /* Light pastel coral background */
+    color: #333; /* Dark gray text */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10vh; /* Push content down to the top half */
+}
+
+/* Container for content */
+.container {
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #8e5e8e;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #6d486d;
+}
+

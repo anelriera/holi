@@ -1,0 +1,119 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #ffffff; /* White background */
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: #fbeafe; /* Very light lilac */
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #fae2fe; /* Light lavender border */
+}
+
+h1 {
+    font-size: 2rem;
+    color: #702963; /* Medium purple */
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Aptos-like font */
+}
+
+h2 {
+    font-size: 1rem;
+    color: #702963; /* Soft lilac */
+    margin: 10px 0 0;
+    font-family: 'Arial', sans-serif; /* Aptos-like font */
+}
+
+/* Container for the boxes */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Box Styling */
+.box {
+    background-color: #ffffff; /* White background */
+    border: 2px solid #e6e6fa; /* Light lavender border */
+    border-radius: 15px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(147, 112, 219, 0.1); /* Soft lilac shadow */
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(147, 112, 219, 0.2); /* Slightly stronger shadow on hover */
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.box p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #702963; /* Fuchsia for descriptions */
+    font-family: 'Segoe UI', 'Aptos', 'Arial', sans-serif; /* Aptos-like font */
+}
+
+.box a {
+    text-decoration: none;
+    color: inherit;
+}
+/* Floating Stars Styling */
+#floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure stars don't interfere with clicks */
+    z-index: 1000; /* Ensure stars are above other content */
+}
+
+.heart {
+    position: absolute;
+    width: 30px; /* Star size */
+    height: 30px; /* Star size */
+    background-color: #ffdd57; /* Yellow star color */
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    animation: float 10s ease-in infinite; /* Slower animation */
+    opacity: 1; /* Slightly transparent */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: .8;
+    }
+}

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>sopa</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+	    color: #311432;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0d7ff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px; /* Increased padding for more space inside the box */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 50px; /* Added margin to create space around the white box */
+	    animation: fadeIn 1.5s ease-in-out; /* Add fade-in animation */
+        }
+
+        .sopa-y-pistas {
+            display: flex;
+            gap: 40px; /* Added gap between the puzzle and the clues */
+        }
+
+        table {
+            border-collapse: collapse;
+            user-select: none;
+        }
+
+        td {
+            width: 30px;
+            height: 1px;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .selected {
+            background-color: lightpink;
+        }
+
+        .found {
+            text-decoration: line-through;
+            color: lightgray;
+        }
+
+        #pistas {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 250px;
+        }
+
+        #pistas li {
+            margin-bottom: 15px; /* Increased spacing between clues */
+            font-size: 16px;
+            line-height: 1.5; /* Added line height for better readability */
+        }
+
+        #continuar {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            background-color: #b591a7;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>resuelve la sopa de letras para poder seguir ;)</h1>
+        <div class="sopa-y-pistas">
+            <table id="sopa"></table>
+            <ul id="pistas"></ul>
+        </div>
+        <button id="continuar">Continuar</button>
+    </div>
+
+    <script>
+        const palabrasYpistas = [
+            { palabra: "KEBAB", pista: "1. la segunda de mis dos cosas favoritas de ir a berlín" },
+            { palabra: "SHABESH", pista: "2. voz española: sabes?" },
+            { palabra: "MUELA", pista: "3. sopa ___ de leo" },
+            { palabra: "AGUACATE", pista: "4. palta, según yo" },
+            { palabra: "TODAVIA", pista: "5. quisiste responder esto cuando estefi y paula preguntaron si éramos novios" },
+            { palabra: "KITKAT", pista: "6. sitio en berlín, o chocolatina" },
+            { palabra: "CUTE", pista: "7. expresión muy nuestra: que ____ :)" },
+            { palabra: "SOBRENATURAL", pista: "8. canción quemada por hach que a mí me gusta más que a ti" },
+            { palabra: "PABLO", pista: "9. el primer amigo tuyo que conocí" },
+            { palabra: "ARDILLA", pista: "10. lo que grababa inicialmente en el video del cementerio" }
+        ];
+
+        const filas = 13; // Increased grid size to accommodate longer words
+        const columnas = 17;
+        const letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+        let tablero;
+        let seleccionInicio = null;
+        let seleccionFin = null;
+        let mouseDown = false;
+        let palabrasEncontradas = [];
+        let palabrasColocadas = [];
+
+        function generarSopa() {
+            const sopa = document.getElementById("sopa");
+            const pistasLista = document.getElementById("pistas");
+            document.getElementById("continuar").style.display = "none"; // Hide the "Continuar" button
+
+            sopa.innerHTML = "";
+            pistasLista.innerHTML = "";
+
+            tablero = crearTableroVacio();
+            palabrasColocadas = [];
+
+            // Place words in the grid
+            for (let item of palabrasYpistas) {
+                colocarPalabra(tablero, item.palabra);
+            }
+
+            // Fill empty cells with random letters
+            rellenarCeldasVacias(tablero);
+
+            // Create HTML grid
+            for (let i = 0; i < filas; i++) {
+                const fila = document.createElement("tr");
+                for (let j = 0; j < columnas; j++) {
+                    const celda = document.createElement("td");
+                    celda.textContent = tablero[i][j];
+                    fila.appendChild(celda);
+                }
+                sopa.appendChild(fila);
+            }
+
+            // Add event listeners
+            const celdas = document.querySelectorAll("td");
+            for (let celda of celdas) {
+                celda.addEventListener("mousedown", iniciarSeleccion);
+                celda.addEventListener("mouseover", actualizarSeleccion);
+                celda.addEventListener("mouseup", finalizarSeleccion);
+            }
+
+            // Display clues
+            for (let item of palabrasYpistas) {
+                const li = document.createElement("li");
+                li.textContent = item.pista;
+                pistasLista.appendChild(li);
+            }
+
+            palabrasEncontradas = [];
+        }
+
+        function iniciarSeleccion(event) {
+            seleccionInicio = event.target;
+            mouseDown = true;
+            actualizarSeleccion(event);
+        }
+
+        function actualizarSeleccion(event) {
+            if (mouseDown) {
+                const celdas = document.querySelectorAll("td");
+                for (let celda of celdas) {
+                    celda.classList.remove("selected");
+                }
+
+                seleccionFin = event.target;
+                marcarPalabra(seleccionInicio, seleccionFin);
+            }
+        }
+
+        function finalizarSeleccion() {
+            mouseDown = false;
+            const celdas = document.querySelectorAll(".selected");
+            let palabra = "";
+            for (let celda of celdas) {
+                palabra += celda.textContent;
+            }
+
+            // Check if word matches
+            const encontrada = palabrasYpistas.find(item => 
+                item.palabra === palabra || item.palabra === palabra.split("").reverse().join("")
+            );
+
+            if (encontrada && !palabrasEncontradas.includes(encontrada.palabra)) {
+                for (let celda of celdas) {
+                    celda.style.backgroundColor = "lightpink";
+                }
+                const pistas = document.querySelectorAll("#pistas li");
+                const index = palabrasYpistas.findIndex(item => item.palabra === encontrada.palabra);
+                pistas[index].classList.add("found");
+                palabrasEncontradas.push(encontrada.palabra);
+            } else {
+                for (let celda of celdas) {
+                    celda.classList.remove("selected");
+                }
+            }
+
+            if (palabrasEncontradas.length === palabrasYpistas.length) {
+                document.getElementById("continuar").style.display = "block";
+            }
+        }
+
+        function marcarPalabra(inicio, fin) {
+            const filaInicio = inicio.parentNode.rowIndex;
+            const columnaInicio = inicio.cellIndex;
+            const filaFin = fin.parentNode.rowIndex;
+            const columnaFin = fin.cellIndex;
+
+            let filaActual = filaInicio;
+            let columnaActual = columnaInicio;
+            const incrementoFila = filaFin > filaInicio ? 1 : filaFin < filaInicio ? -1 : 0;
+            const incrementoColumna = columnaFin > columnaInicio ? 1 : columnaFin < columnaInicio ? -1 : 0;
+
+            while (filaActual !== filaFin || columnaActual !== columnaFin) {
+                const celda = document.querySelector(`tr:nth-child(${filaActual + 1}) td:nth-child(${columnaActual + 1})`);
+                celda.classList.add("selected");
+                filaActual += incrementoFila;
+                columnaActual += incrementoColumna;
+            }
+            const celdaFin = document.querySelector(`tr:nth-child(${filaFin + 1}) td:nth-child(${columnaFin + 1})`);
+            celdaFin.classList.add("selected");
+        }
+
+        function crearTableroVacio() {
+            const tablero = [];
+            for (let i = 0; i < filas; i++) {
+                tablero[i] = [];
+                for (let j = 0; j < columnas; j++) {
+                    tablero[i][j] = ".";
+                }
+            }
+            return tablero;
+        }
+
+        function rellenarCeldasVacias(tablero) {
+            for (let i = 0; i < filas; i++) {
+                for (let j = 0; j < columnas; j++) {
+                    if (tablero[i][j] === ".") {
+                        tablero[i][j] = letras[Math.floor(Math.random() * letras.length)];
+                    }
+                }
+            }
+        }
+
+        function colocarPalabra(tablero, palabra) {
+            const direcciones = [
+                [0, 1], [1, 0], [0, -1], [-1, 0], 
+                [1, 1], [1, -1], [-1, 1], [-1, -1]
+            ];
+
+            while (true) {
+                const fila = Math.floor(Math.random() * filas);
+                const columna = Math.floor(Math.random() * columnas);
+                const direccion = direcciones[Math.floor(Math.random() * direcciones.length)];
+
+                if (puedeColocarPalabra(tablero, palabra, fila, columna, direccion)) {
+                    for (let i = 0; i < palabra.length; i++) {
+                        tablero[fila + i * direccion[0]][columna + i * direccion[1]] = palabra[i];
+                    }
+                    palabrasColocadas.push(palabra);
+                    break;
+                }
+            }
+        }
+
+        function puedeColocarPalabra(tablero, palabra, fila, columna, direccion) {
+            for (let i = 0; i < palabra.length; i++) {
+                const nuevaFila = fila + i * direccion[0];
+                const nuevaColumna = columna + i * direccion[1];
+                if (nuevaFila < 0 || nuevaFila >= filas || nuevaColumna < 0 || nuevaColumna >= columnas) {
+                    return false;
+                }
+                if (tablero[nuevaFila][nuevaColumna] !== "." && tablero[nuevaFila][nuevaColumna] !== palabra[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Add event listener to the "Continuar" button
+        document.getElementById("continuar").addEventListener("click", () => {
+            window.location.href = "menu.html";
+        });
+
+        generarSopa();
+    </script>
+</body>
+</html>
