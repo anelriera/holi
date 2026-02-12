@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>holi</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <h1>bienvenido <3</h1>
-        <h2>qué te apetece hacer? :)</h2>
+        <h1>bienvenido <3< /h1>
+                <h2>qué te apetece hacer? :)</h2>
     </header>
     <!-- Floating Hearts Container -->
-	<div id="floating-hearts">
-   	   <!-- Hearts will be dynamically added here -->
-	</div>
+    <div id="floating-hearts">
+        <!-- Hearts will be dynamically added here -->
+    </div>
     <div class="container">
         <!-- Box 1 -->
         <div class="box">
@@ -26,7 +28,8 @@
 
         <!-- Box 2 -->
         <div class="box">
-            <a href="https://drive.google.com/file/d/1U9y-F55IlWurYK9cG5oygBkY9CLWprhG/view?usp=sharing" target="_blank">
+            <a href="https://drive.google.com/file/d/1U9y-F55IlWurYK9cG5oygBkY9CLWprhG/view?usp=sharing"
+                target="_blank">
                 <img src="peli.png" alt="Shithouse">
                 <p>shithouse: la peli que dijimos de ver</p>
             </a>
@@ -79,32 +82,38 @@
                 <p>enchambered: escape room virtual para 2</p>
             </a>
         </div>
+
+        <!-- Box 9 -->
+        <div class="box">
+            <a href="cuentos.pdf" target="_blank">
+                <img src="portada.png" alt="cuentos">
+                <p>die geshichte von anel und leo</p>
+            </a>
+        </div>
     </div>
-<script>
-    // Function to create a star
-function createStar() {
-    const star = document.createElement('div');
-    star.classList.add('heart');
-    star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
-    star.style.animationDuration = Math.random() * 10 + 5 + 's'; // Random animation duration (5-15s)
-    star.style.opacity = Math.random() * 0.8 + 0.2; // Random opacity (0.2-1)
-    star.style.transform = `scale(${Math.random() * 0.5 + 0.5})`; // Random size (0.5-1)
-    document.getElementById('floating-hearts').appendChild(star);
+    <script>
+        // Function to create a star
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('heart');
+            star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            star.style.animationDuration = Math.random() * 10 + 5 + 's'; // Random animation duration (5-15s)
+            star.style.opacity = Math.random() * 0.8 + 0.2; // Random opacity (0.2-1)
+            star.style.transform = `scale(${Math.random() * 0.5 + 0.5})`; // Random size (0.5-1)
+            document.getElementById('floating-hearts').appendChild(star);
 
-    // Remove star after animation ends
-    setTimeout(() => {
-        star.remove();
-    }, 15000); // Match the longest animation duration
-}
+            // Remove star after animation ends
+            setTimeout(() => {
+                star.remove();
+            }, 15000); // Match the longest animation duration
+        }
 
-// Generate stars every 200ms for 10 seconds
-const starInterval = setInterval(createStar, 200);
-setTimeout(() => {
-    clearInterval(starInterval); // Stop generating stars after 10 seconds
-}, 10000);
-</script>
+        // Generate stars every 200ms for 10 seconds
+        const starInterval = setInterval(createStar, 200);
+        setTimeout(() => {
+            clearInterval(starInterval); // Stop generating stars after 10 seconds
+        }, 10000);
+    </script>
 </body>
+
 </html>
-
-
-
