@@ -17,40 +17,40 @@
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-size: 2rem;
             font-weight: normal;
         }
 
         .gallery {
-            column-count: 5;
-            /* More columns = smaller images */
-            column-gap: 20px;
-            max-width: 1400px;
+            column-count: 8;
+            /* significantly more columns for smaller images */
+            column-gap: 10px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
         @media (max-width: 1200px) {
             .gallery {
-                column-count: 4;
+                column-count: 6;
             }
         }
 
         @media (max-width: 900px) {
             .gallery {
-                column-count: 3;
+                column-count: 4;
             }
         }
 
         @media (max-width: 600px) {
             .gallery {
-                column-count: 2;
+                column-count: 3;
             }
         }
 
         .gallery-item {
             break-inside: avoid;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             background: transparent;
             /* No background */
             padding: 0;
@@ -59,6 +59,7 @@
             /* No border radius */
             box-shadow: none;
             /* No shadow */
+            /* No transition/transform */
         }
 
         .gallery-item img {
