@@ -4,82 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>las cosas de leo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>intro</title>
     <style>
         body {
-            background-color: #fce4ec;
-            /* Soft pink background */
+            background-color: #ffffff;
+            /* White background */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px;
             box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
 
         .note-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            /* Removed box styling */
+            max-width: 800px;
+            /* Wider text */
             width: 100%;
             text-align: left;
-            /* Reading text usually better aligned left */
-            position: relative;
             line-height: 1.6;
-            color: #555;
+            color: #333;
+            /* Darker letters */
             font-size: 1.1rem;
-        }
-
-        .note-container:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: repeating-linear-gradient(45deg,
-                    #f8bbd0,
-                    #f8bbd0 10px,
-                    #fce4ec 10px,
-                    #fce4ec 20px);
-            border-radius: 10px 10px 0 0;
         }
 
         h1 {
             text-align: center;
-            color: #880e4f;
+            color: #333;
             margin-bottom: 30px;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            font-weight: normal;
         }
 
         p {
             margin-bottom: 15px;
             white-space: pre-wrap;
-            /* Preserves the user's line breaks */
         }
 
         .next-btn {
             display: block;
-            margin: 30px auto 0;
-            padding: 12px 30px;
-            background-color: #e91e63;
-            color: white;
+            margin: 40px auto 0;
+            padding: 10px 20px;
+            background-color: transparent;
+            /* White/Transparent */
+            color: #333;
             border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
+            /* Un-round/No border */
+            font-size: 1rem;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.3s;
             text-align: center;
             width: fit-content;
         }
 
         .next-btn:hover {
-            background-color: #c2185b;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -87,7 +69,7 @@
 <body>
 
     <div class="note-container">
-        <h1>las cosas de leo</h1>
+        <h1>intro</h1>
         <p>de repente cobro conciencia de lo que había tomado como mío. de esos momentos que le pido prestados a la
             vida, donde por un instante puedo cerrar los ojos en tu cama e imaginarme que es nuestra.
             y de repente estoy despierta. y tengo un nudo en la garganta caminando por tu casa pensando en que mañana
@@ -117,7 +99,7 @@
 
             con amor,
             anel</p>
-        <a href="collage_leo.html" class="next-btn">Ver las cosas de leo -></a>
+        <a href="cosas.html" class="next-btn">ver las cosas de leo</a>
     </div>
 
 </body>
