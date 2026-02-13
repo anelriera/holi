@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>las cosas de leo - collage</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #880e4f;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        .gallery {
+            column-count: 4;
+            /* Masonry layout */
+            column-gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .gallery {
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        .category-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #880e4f;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>las cosas que me recuerdan a ti</h1>
+
+    <div class="gallery">
+        <!-- Clothes -->
+        <div class="gallery-item"><img src="leosthings/shirts.png"></div>
+        <div class="gallery-item"><img src="leosthings/shirts 2.png"></div>
+        <div class="gallery-item"><img src="leosthings/socks.png"></div>
+        <div class="gallery-item"><img src="leosthings/clothes hanger.png"></div>
+        <div class="gallery-item"><img src="leosthings/backpack.png"></div>
+        <div class="gallery-item"><img src="leosthings/alianza lima shirt.png"></div>
+        <div class="gallery-item"><img src="leosthings/alianza lima boxers.png"></div>
+        <div class="gallery-item"><img src="leosthings/sleep mask.png"></div>
+
+        <!-- Food -->
+        <div class="gallery-item"><img src="leosthings/kebab.png"></div>
+        <div class="gallery-item"><img src="leosthings/chicken wings.png"></div>
+        <div class="gallery-item"><img src="leosthings/chicken curry.png"></div>
+        <div class="gallery-item"><img src="leosthings/pho.png"></div>
+        <div class="gallery-item"><img src="leosthings/sausage.png"></div>
+        <div class="gallery-item"><img src="leosthings/carbonara.png"></div>
+        <div class="gallery-item"><img src="leosthings/pesto.png"></div>
+        <div class="gallery-item"><img src="leosthings/toast.png"></div>
+        <div class="gallery-item"><img src="leosthings/oatmeal.png"></div>
+        <div class="gallery-item"><img src="leosthings/peanut butter.png"></div>
+        <div class="gallery-item"><img src="leosthings/colacao.png"></div>
+        <div class="gallery-item"><img src="leosthings/milk.png"></div>
+        <div class="gallery-item"><img src="leosthings/water bottle.png"></div>
+        <div class="gallery-item"><img src="leosthings/monster drink.png"></div>
+        <div class="gallery-item"><img src="leosthings/orange.png"></div>
+        <div class="gallery-item"><img src="leosthings/grapes.png"></div>
+        <div class="gallery-item"><img src="leosthings/garlic powder.png"></div>
+        <div class="gallery-item"><img src="leosthings/pepper.png"></div>
+        <div class="gallery-item"><img src="leosthings/oil spray.png"></div>
+        <div class="gallery-item"><img src="leosthings/pans.png"></div>
+        <div class="gallery-item"><img src="leosthings/chopping board.png"></div>
+        <div class="gallery-item"><img src="leosthings/supermarket.png"></div>
+
+        <!-- Tech/Gaming -->
+        <div class="gallery-item"><img src="leosthings/ipad.png"></div>
+        <div class="gallery-item"><img src="leosthings/earpods.png"></div>
+        <div class="gallery-item"><img src="leosthings/powerbank.png"></div>
+        <div class="gallery-item"><img src="leosthings/airtag.png"></div>
+        <div class="gallery-item"><img src="leosthings/gaming controller.png"></div>
+        <div class="gallery-item"><img src="leosthings/mariokart.png"></div>
+        <div class="gallery-item"><img src="leosthings/habbo game.png"></div>
+        <div class="gallery-item"><img src="leosthings/youtube.png"></div>
+        <div class="gallery-item"><img src="leosthings/claude.png"></div>
+        <div class="gallery-item"><img src="leosthings/antigravity.png"></div>
+
+        <!-- Bathroom/Personal -->
+        <div class="gallery-item"><img src="leosthings/toothbrush.png"></div>
+        <div class="gallery-item"><img src="leosthings/toothpaste.png"></div>
+        <div class="gallery-item"><img src="leosthings/soap.png"></div>
+        <div class="gallery-item"><img src="leosthings/deodorant.png"></div>
+        <div class="gallery-item"><img src="leosthings/perfume.png"></div>
+        <div class="gallery-item"><img src="leosthings/razor.png"></div>
+        <div class="gallery-item"><img src="leosthings/smint for dance.png"></div>
+
+        <!-- Misc -->
+        <div class="gallery-item"><img src="leosthings/earrings.png"></div>
+        <div class="gallery-item"><img src="leosthings/jack and jill.png"></div>
+    </div>
+
+    <a href="menu.html" class="back-btn">Volver al menú</a>
+
+</body>
+
+</html>
