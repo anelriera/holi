@@ -54,8 +54,8 @@ h2 {
     border: 2px solid #e6e6fa;
     /* Light lavender border */
     border-radius: 15px;
-    width: 200px;
-    padding: 15px;
+    width: 160px;
+    padding: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(147, 112, 219, 0.1);
