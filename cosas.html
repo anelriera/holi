@@ -23,28 +23,28 @@
         }
 
         .gallery {
-            column-count: 12;
-            /* significantly more columns for smaller images */
-            column-gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
             max-width: 100%;
             margin: 0 auto;
         }
 
         @media (max-width: 1200px) {
             .gallery {
-                column-count: 8;
+                grid-template-columns: repeat(8, 1fr);
             }
         }
 
         @media (max-width: 900px) {
             .gallery {
-                column-count: 6;
+                grid-template-columns: repeat(6, 1fr);
             }
         }
 
         @media (max-width: 600px) {
             .gallery {
-                column-count: 4;
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
