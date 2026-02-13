@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>las cosas de leo</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #fce4ec;
+            /* Soft pink background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .note-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+            /* Reading text usually better aligned left */
+            position: relative;
+            line-height: 1.6;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .note-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(45deg,
+                    #f8bbd0,
+                    #f8bbd0 10px,
+                    #fce4ec 10px,
+                    #fce4ec 20px);
+            border-radius: 10px 10px 0 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #880e4f;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+            /* Preserves the user's line breaks */
+        }
+
+        .next-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 30px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .next-btn:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="note-container">
+        <h1>las cosas de leo</h1>
+        <p>de repente cobro conciencia de lo que había tomado como mío. de esos momentos que le pido prestados a la
+            vida, donde por un instante puedo cerrar los ojos en tu cama e imaginarme que es nuestra.
+            y de repente estoy despierta. y tengo un nudo en la garganta caminando por tu casa pensando en que mañana
+            volverá a ser solo eso: tuya.
+            y cada acto se vuelve sagrado.
+            nos estamos duchando juntos por última vez.
+            nuestros últimos bailes.
+            último viaje al super.
+            última comida de la mano.
+            última lavada de niños.
+            último despertar abrazados.
+            y cada mirada que me regalas, tus preciosos labios que se doblan al verme, todo me hace llorar. y llevo todo
+            el día llorando. veo tus cosas y lloro, porque vuelven a ser solo eso: tuyas.
+            y de repente no sé hablar sin llorar, y todo es más pesado cargando con la duda de si esta será la última
+            vez que compartiremos cada pequeño momento que hasta ahora habían sido rutina. pero a ti no te cansan mis
+            lágrimas. no te cansas de abrazarme, de acariciarme el rostro y ponerme esa carita que pones tú que siento
+            que me dice que lo entiendes y que tú te sientes igual, aunque no lo expreses tanto.
+            y en esos momentos vuelvo a respirar. a sentir un profundo agradecimiento por haber encontrado tanto amor en
+            una sola persona que se me hace imposible despedirme de ella.
+            supongo que ahí está la esencia. el saber que no nos queremos despedir, y que por eso lo hacemos.
+            pero sé que esto no es para siempre. que no estamos lejos del día en que haya un nosotros indivisible,
+            presente en nuestras cosas. nuestra casa, con nuestra cama, nuestra mesita y nuestros juegos que jugaremos
+            con nuestros mandos. me llena de vida imaginarme ese día, y saber que una despedida más es solamente una
+            despedida menos.
+
+            te quiero mucho.
+
+            con amor,
+            anel</p>
+        <a href="collage_leo.html" class="next-btn">ver las cosas de leo -></a>
+    </div>
+
+</body>
+
+</html>

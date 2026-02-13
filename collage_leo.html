@@ -4,77 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cosas</title>
+    <title>las cosas de leo - collage</title>
     <style>
         body {
-            background-color: #ffffff;
-            /* White background */
+            background-color: #fce4ec;
             margin: 0;
-            padding: 40px;
+            padding: 20px;
             font-family: 'Arial', sans-serif;
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2rem;
-            font-weight: normal;
+            color: #880e4f;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
         }
 
         .gallery {
-            column-count: 12;
-            /* significantly more columns for smaller images */
-            column-gap: 10px;
-            max-width: 100%;
+            column-count: 8;
+            /* Masonry layout */
+            column-gap: 15px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         @media (max-width: 1200px) {
             .gallery {
-                column-count: 8;
+                column-count: 6;
             }
         }
 
         @media (max-width: 900px) {
             .gallery {
-                column-count: 6;
+                column-count: 4;
             }
         }
 
         @media (max-width: 600px) {
             .gallery {
-                column-count: 4;
+                column-count: 3;
             }
         }
 
         .gallery-item {
             break-inside: avoid;
-            margin-bottom: 10px;
-            background: transparent;
-            /* No background */
-            padding: 0;
-            /* No padding */
-            border-radius: 0;
-            /* No border radius */
-            box-shadow: none;
-            /* No shadow */
-            /* No transition/transform */
+            margin-bottom: 15px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            z-index: 10;
         }
 
         .gallery-item img {
             width: 100%;
             height: auto;
-            border-radius: 0;
-            /* No border radius */
+            border-radius: 4px;
             display: block;
+        }
+
+        .category-label {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #880e4f;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e91e63;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 
 <body>
 
-    <h1>cosas</h1>
+    <h1>las cosas de leo</h1>
 
     <div class="gallery">
         <!-- Clothes -->
@@ -136,6 +160,8 @@
         <div class="gallery-item"><img src="leosthings/earrings.png"></div>
         <div class="gallery-item"><img src="leosthings/jack and jill.png"></div>
     </div>
+
+    <a href="menu.html" class="back-btn">volver al menú</a>
 
 </body>
 
